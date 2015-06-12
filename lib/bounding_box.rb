@@ -1,3 +1,5 @@
+require 'pry'
+
 class BoundingBox
   attr_reader :x, :y, :width, :height
   def initialize(x_coord, y_coord, width, height)
@@ -24,11 +26,21 @@ class BoundingBox
   def height
     @height
   end
-  def contains_point?(x, y)
+  def inside_x_coord(x)
     if x >= left && x <= right
-      if y >= bottom && y <= top
+      return true
+    end
+      false
+  end
+  def inside_y_coord(y)
+    if y >= bottom && y <= top
+      return true
+    end
+      false
+  end
+  def contains_point?(x, y)
+    if inside_x_coord(x) && inside_y_coord(y)
         return true
-      end
     end
     false
   end

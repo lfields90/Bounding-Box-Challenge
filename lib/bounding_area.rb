@@ -23,7 +23,6 @@ class BoundingArea < BoundingBox
     elsif x.is_a?(Array) || y.is_a?(Array)
     end
   end
-#  binding.pry
 end
 
 # if x_nil? || x_empty?
